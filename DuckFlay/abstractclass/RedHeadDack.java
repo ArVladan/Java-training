@@ -1,6 +1,7 @@
 package abstractclass;
 
 import duckinterface.FlyWingBehavior;
+import duckinterface.IFlyBehavior;
 
 public class RedHeadDack extends DuckAbstract {
 
@@ -16,8 +17,8 @@ public class RedHeadDack extends DuckAbstract {
 		System.out.println("This is redhead duck");
 	}
 	
-	public void setFlyBehavior() {
-		flyBehavior.fly();
+	public void setFlyBehavior(IFlyBehavior fl) {
+		flyBehavior = fl;
 	}
 	
 

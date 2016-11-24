@@ -3,6 +3,7 @@ package realisation;
 import abstractclass.DecoyDuck;
 import abstractclass.MotorDuck;
 import abstractclass.RedHeadDack;
+import duckinterface.FlyMotorBehavior;
 
 public class LikeDuck {
 
@@ -15,19 +16,21 @@ public class LikeDuck {
 		 System.out.println("She swim: ");
 		 redDuck.swim();
 		 System.out.println("To fly: ");
-		 redDuck.setFlyBehavior();
+		 redDuck.perfomFly();
 		 System.out.println("Two duck ");
 		 playDuck.display();
 		 System.out.println("Swim: ");
 		 playDuck.swim();
 		 System.out.println("To fly: ");
-		 playDuck.setFlyBehavior();
+		 playDuck.perfomFly();
+		 playDuck.setFlyBehavior(new FlyMotorBehavior());
+		 playDuck.perfomFly();
 		 System.out.println("Last duck ");
 		 speedDuck.display();
 		 System.out.println("Last duck swim: ");
 		 speedDuck.swim();
 		 System.out.println("Last duck to fly: ");
-		 speedDuck.setFlyBehavior();
+		 speedDuck.perfomFly();
 	
 	}
 

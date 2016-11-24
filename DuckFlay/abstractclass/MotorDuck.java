@@ -1,12 +1,14 @@
 package abstractclass;
 
 import duckinterface.FlyMotorBehavior;
+import duckinterface.FlyWingBehavior;
+import duckinterface.IFlyBehavior;
 
 public class MotorDuck extends DuckAbstract {
 
-		public MotorDuck() {
-			flyBehavior = new FlyMotorBehavior();	
-		}
+		
+			IFlyBehavior flyBehavior = new FlyMotorBehavior();	
+	
 		
 		public void swim() {
 			System.out.println("Fiu - fiu");
@@ -16,8 +18,12 @@ public class MotorDuck extends DuckAbstract {
 			System.out.println("Motor duck");
 		}
 		
-		public void setFlyBehavior() {
-			flyBehavior.fly();	
+		public void perfomFly() {
+			flyBehavior.fly();
+		}
+		
+		public void setFlyBehavior(FlyWingBehavior fb) {
+			flyBehavior = fb;
 		}
 
 }

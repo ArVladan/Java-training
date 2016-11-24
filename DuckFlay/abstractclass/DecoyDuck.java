@@ -1,5 +1,7 @@
 package abstractclass;
 
+import duckinterface.FlyMotorBehavior;
+import duckinterface.FlyWingBehavior;
 import duckinterface.NoFlyBehavior;
 
 public class DecoyDuck extends DuckAbstract {
@@ -16,8 +18,8 @@ public class DecoyDuck extends DuckAbstract {
 		System.out.println("Wood duck");
 	}
 	
-	public void setFlyBehavior() {
-		flyBehavior.fly();
+	public void setFlyBehavior(FlyMotorBehavior fm) {
+		flyBehavior = fm;
 	}
 	
 }

@@ -1,12 +1,18 @@
 package abstractclass;
 
-import duckinterface.IFlayBehavior;
+import duckinterface.FlyMotorBehavior;
+import duckinterface.FlyWingBehavior;
+import duckinterface.IFlyBehavior;
 
 public abstract class DuckAbstract {
-	IFlayBehavior flyBehavior;
+	IFlyBehavior flyBehavior;
 	
 	public DuckAbstract () {
 		
+	}
+	
+	public void perfomFly() {
+		flyBehavior.fly();
 	}
 	
 	public void swim() {
@@ -14,8 +20,9 @@ public abstract class DuckAbstract {
 	
 	public abstract void display();
 	
-	public void setFlyBehavior() {
-		flyBehavior.fly();
+	public void setFlyBehavior(FlyMotorBehavior fm, FlyWingBehavior fb) {
+		flyBehavior = fb;
+		flyBehavior = fm;
 	}
 
 }

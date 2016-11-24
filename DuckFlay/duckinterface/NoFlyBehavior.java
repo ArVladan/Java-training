@@ -1,6 +1,6 @@
 package duckinterface;
 
-public class NoFlyBehavior implements IFlayBehavior {
+public class NoFlyBehavior implements IFlyBehavior {
 
 	@Override
 	public void fly() {
