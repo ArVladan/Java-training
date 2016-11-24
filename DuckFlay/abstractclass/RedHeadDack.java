@@ -13,7 +13,7 @@ public class RedHeadDack extends DuckAbstract {
 	}
 	
 	public void display() {
-		super.display();
+		System.out.println("This is redhead duck");
 	}
 	
 	public void setFlyBehavior() {
