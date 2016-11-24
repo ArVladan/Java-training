@@ -9,15 +9,14 @@ public abstract class DuckAbstract {
 		
 	}
 	
-	public void swim() {
-		System.out.println("This duck swim");
-	}
+	abstract public void swim();
+	
 	public void display() {
 		System.out.println("It is duck");
 	}
+	
 	public void setFlyBehavior() {
 		flyBehavior.fly();
-		
 	}
 
 }

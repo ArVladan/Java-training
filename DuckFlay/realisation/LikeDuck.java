@@ -28,11 +28,7 @@ public class LikeDuck {
 		 speedDuck.swim();
 		 System.out.println("Last duck to fly: ");
 		 speedDuck.setFlyBehavior();
-		 
 	
-		 
-		 
-
 	}
 
 }
