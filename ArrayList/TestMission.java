@@ -26,14 +26,11 @@ public class TestMission {
 		for (int i = 0; i < test.size; i++) {
 			System.out.println(test.get(i));
 		}
-		
 		System.out.println("Тест метода conteins:");
 		System.out.println(test.contains("Среда"));
 		System.out.println(test.contains("Вторник"));
-		
 		System.out.println("Тест метода clear:");
 		test.clear();
-		
 		System.out.println(test.isEmpty());
 	
 	}

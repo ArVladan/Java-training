@@ -9,9 +9,9 @@ public class Test {
 		test.add("Харьков");
 		test.add("Львов");
 		test.add("Запорожье");
-	//	test.remove("Запорожье");
-	//	System.out.println(test.contains("Запорожье"));
-	//	test.add("Запорожье");
+		test.remove("Запорожье");
+		System.out.println(test.contains("Запорожье"));
+		test.add("Запорожье");
 		for (int i = 0; i < test.size; i++) {
 			System.out.println(test.iterator.next());
 		}

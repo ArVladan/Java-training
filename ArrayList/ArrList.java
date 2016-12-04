@@ -63,7 +63,6 @@ public class ArrList<Item> implements IList<Item> {
     		if (arr[i] == t) {
     			return true;	
     		}
-    	
     	}
     	return false;
     }
@@ -74,7 +73,6 @@ public class ArrList<Item> implements IList<Item> {
     	if (size == 0) {
     		return true;
     	} else {
-    	
     	return false;
     	}
     }
@@ -123,7 +121,6 @@ public class ArrList<Item> implements IList<Item> {
 				return true;
 			}
 			return false;		
-			
 		}
 
 		@Override
@@ -137,7 +134,7 @@ public class ArrList<Item> implements IList<Item> {
 		@Override
 		public void remove() {
 			for (int i = 0; i <= size; i++) {
-	    		if (arr[i] == arr[index]) {
+	    		if (arr[i] == arr[index-1]) {
 	    			for (; i < size; i++) {
 	    	    		arr[i] = arr[i+1];
 	    			}
@@ -147,6 +144,4 @@ public class ArrList<Item> implements IList<Item> {
 		}
     	
     }
-
-
 }
