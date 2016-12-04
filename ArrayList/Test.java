@@ -9,9 +9,9 @@ public class Test {
 		test.add("Харьков");
 		test.add("Львов");
 		test.add("Запорожье");
-		test.remove("Запорожье");
-		System.out.println(test.contains("Запорожье"));
-		test.add("Запорожье");
+		test.remove("Харьков");
+		System.out.println(test.contains("Харьков"));
+		test.add("Харьков");
 		for (int i = 0; i < test.size; i++) {
 			System.out.println(test.iterator.next());
 		}
@@ -21,6 +21,7 @@ public class Test {
 		System.out.println(test.iterator.next());
 		System.out.println(test.iterator.next());
 		test.iterator.remove();
+		System.out.println(test.iterator.next());
 		for (int i = 0; i < test.size; i++) {
 			System.out.println(test.get(i));
 		}

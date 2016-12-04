@@ -49,10 +49,10 @@ public class ArrList<Item> implements IList<Item> {
     		if (arr[i] == t) {
     			for (; i < size; i++) {
     	    		arr[i] = arr[i+1];
-    	    		size--;
-    			}
+    	    	}
     		}
     	}
+    	size--;
     }
   
     
@@ -140,6 +140,7 @@ public class ArrList<Item> implements IList<Item> {
 	    			}
 	    		}
 	    	}
+			index--;
 			size--;
 		}
     	
