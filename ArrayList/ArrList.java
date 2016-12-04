@@ -140,8 +140,8 @@ public class ArrList<Item> implements IList<Item> {
 	    			}
 	    		}
 	    	}
-			index--;
-			size--;
+		index--;
+		size--;
 		}
     	
     }
