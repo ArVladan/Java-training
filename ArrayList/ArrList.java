@@ -92,11 +92,10 @@ public class ArrList<Item> implements IList<Item> {
 		@Override
 		public Item next() {
 			if (index == -1) {
-				index = 1;
+				index += 2;
 			}
-			while (hasNext()) {
-				index--;
-				return (Item) arr[index++]; 
+			if (index < size + 1) {
+				return (Item) arr[index++];
 			}
 			return null;
 		}
@@ -107,9 +106,8 @@ public class ArrList<Item> implements IList<Item> {
 			if (index == size) {
 				index -= 2;
 			}
-			while (hasPrev()) {
-				index++;
-				return (Item) arr[index--]; 
+			if (index >= 0) {
+				return (Item) arr[index--];
 			}
 			return null;
 		}
