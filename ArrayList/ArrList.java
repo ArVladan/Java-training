@@ -87,8 +87,7 @@ public class ArrList<Item> implements IList<Item> {
    
 	@SuppressWarnings("hiding")
 	public class ArrayIterator<Item> implements ListatorIn <Item> {
-		int i = 0;
-
+		
 		@SuppressWarnings("unchecked")
 		@Override
 		public Item next() {
