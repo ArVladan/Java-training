@@ -1,11 +1,17 @@
 package com.sourceit.linked;
 
+import interlist.ListatorIn;
+
 public class MyLinked<Item> implements InterLink<Item> {
 	private Node firstNode;
 	private Node lastNode;
-	private int size;
+	public int size;
+	public ArrayIterator<Item> iterator;
+	int index;
+	Node it = new Node(null);
 	
 	public MyLinked() {
+		this.iterator = new ArrayIterator<Item>();
 	
 	}
 	
@@ -152,13 +158,82 @@ public class MyLinked<Item> implements InterLink<Item> {
 	
 	private class Node {
 		private Item element;
-		private Node next;
+		public Node next;
 		private Node prev;
 		
 		Node (Item element) {
 			this.element = element;
 		}
-
 	}
+	public class ArrayIterator<Item> implements ListatorIn <Item> {
+		
+		@Override
+		public Item next() {
+			if (index == 0) {
+				it = firstNode;
+				index++;
+				return (Item) it.element;
+			} else {
+				while (index < size) {
+					it = it.next;
+					index++;
+					return (Item) it.element;
+				}
+			}
+			return null;
+		}
 
+		@Override
+		public Item previous() {
+			if (index == 0) {
+				return null;
+			}
+			while (index > 0) {
+				it = it.prev;
+				index--;
+				return (Item) it.element;
+			}
+			return null;
+		}
+
+		@Override
+		public boolean hasNext() {
+			while (index++ < size) {
+				return true;
+			}
+			return false;
+		}
+
+		@Override
+		public boolean hasPrev() {
+			while (index > 0) {
+				return true;
+			}
+			return false;
+		}
+
+		@Override
+		public void remove() {
+			
+			if (it.element == firstNode.element) {
+				firstNode = firstNode.next;
+				firstNode.prev = null;
+				size--;
+				return;
+			}
+			if (it.element == lastNode.element) {
+				lastNode = lastNode.prev;
+				lastNode.next = null;
+				size--;
+				return;
+			}
+			Node fix = new Node(null);	
+			fix = it;
+			fix = fix.prev;
+			fix.next = it.next;
+			it = it.next;
+			it.prev = fix;
+			size--;
+		}
+	}
 }
