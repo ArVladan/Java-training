@@ -1,10 +1,12 @@
 package com.sourseit.arrlist;
 
+import java.util.Iterator;
+
 public class Test {
 
 	public static void main(String[] args) {
 		ArrList<String> test = new ArrList<>();
-		
+		System.out.println(test.isEmpty());
 		test.add("Киев");
 		test.add("Харьков");
 		test.add("Львов");
@@ -12,19 +14,12 @@ public class Test {
 		test.remove("Харьков");
 		System.out.println(test.contains("Харьков"));
 		test.add("Харьков");
-		for (int i = 0; i < test.size; i++) {
-			System.out.println(test.iterator.next());
+		System.out.println(test.isEmpty());
+		Iterator<String> iter = test.iterator();
+		while (iter.hasNext()) {
+			System.out.println(iter.next());
 		}
-		for (int i = test.size; i > 1; i--) {
-			System.out.println(test.iterator.previous());
-		}
-		System.out.println(test.iterator.next());
-		System.out.println(test.iterator.next());
-		test.iterator.remove();
-		System.out.println(test.iterator.next());
-		for (int i = 0; i < test.size; i++) {
-			System.out.println(test.get(i));
-		}
+		
 	}
-
+		
 }

@@ -1,5 +1,7 @@
 package com.sourceit.linked;
 
+import java.util.Iterator;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -30,19 +32,14 @@ public class Test {
 		System.out.println("test isEmpty " + test.isEmpty());
 		test.clear();
 		System.out.println("size " + test.size());*/
-		for (int i = 0; i < test.size; i++) {
-			System.out.println(test.iterator.next());
-		}
-		for (int i = test.size; i > 1; i--) {
-			System.out.println(test.iterator.previous());
-		}
-		System.out.println(test.iterator.next());
-		test.iterator.remove();;
-		test.index = 0;
-		for (int i = 0; i < test.size; i++) {
-			System.out.println(test.iterator.next());
+		
+		Iterator<String> i = test.iterator();
+		while (i.hasNext()) {
+			System.out.println(i.next());
 		}
 		
 	}
+		
+	
 
 }

@@ -1,15 +1,16 @@
 package com.sourseit.arrlist;
-import interlist.ListatorIn;
 
-public class ArrList<Item> implements IList<Item> {
+import java.util.Iterator;
+
+public class ArrList<Item> implements IList<Item>, Iterable<Item> {
     public Object arr[];
     public int size = 0;
-    public ArrayIterator<Item> iterator;
+    
     public int index = 0;
     
     public ArrList() {
         this.arr = new Object[10];
-        this.iterator = new ArrayIterator<Item>();
+       
     }
     
     public ArrList(int length) {
@@ -70,11 +71,7 @@ public class ArrList<Item> implements IList<Item> {
     @Override
 	
     public boolean isEmpty() {
-    	if (size == 0) {
-    		return true;
-    	} else {
-    	return false;
-    	}
+    	return size == 0;
     }
     
     @Override
@@ -83,63 +80,31 @@ public class ArrList<Item> implements IList<Item> {
     	size = 0;
     	arr = clean;
     }
-    
-   
-	@SuppressWarnings("hiding")
-	public class ArrayIterator<Item> implements ListatorIn <Item> {
-		
-		@SuppressWarnings("unchecked")
-		@Override
-		public Item next() {
-			if (index == -1) {
-				index += 2;
+
+	@Override
+	public Iterator<Item> iterator() {
+		Iterator<Item> it = new Iterator<Item>() {
+			private int index = 0;
+
+			@Override
+			public boolean hasNext() {
+				return index < size && arr[index] != null;
 			}
-			if (index < size + 1) {
+
+			@SuppressWarnings("unchecked")
+			@Override
+			public Item next() {
 				return (Item) arr[index++];
 			}
-			return null;
-		}
+			
+			
+		};
+		return it;
+	}
 
-		@SuppressWarnings("unchecked")
-		@Override
-		public Item previous() {
-			if (index == size) {
-				index -= 2;
-			}
-			if (index >= 0) {
-				return (Item) arr[index--];
-			}
-			return null;
-		}
-
-		@Override
-		public boolean hasNext() {
-			while (index++ < size) {
-				return true;
-			}
-			return false;		
-		}
-
-		@Override
-		public boolean hasPrev() {
-			while (index-- >= 0) {
-				return true;
-			}
-			return false;
-		}
-
-		@Override
-		public void remove() {
-			for (int i = 0; i <= size; i++) {
-	    		if (arr[i] == arr[index-1]) {
-	    			for (; i < size; i++) {
-	    	    		arr[i] = arr[i+1];
-	    			}
-	    		}
-	    	}
-		index--;
-		size--;
-		}
-    	
-    }
+	
+	
 }
+	
+
+

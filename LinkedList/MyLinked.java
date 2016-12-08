@@ -1,17 +1,17 @@
 package com.sourceit.linked;
 
-import interlist.ListatorIn;
+import java.util.Iterator;
 
-public class MyLinked<Item> implements InterLink<Item> {
+
+
+public class MyLinked<Item> implements InterLink<Item>, Iterable<Item> {
 	private Node firstNode;
 	private Node lastNode;
 	public int size;
-	public ArrayIterator<Item> iterator;
-	int index;
-	Node it = new Node(null);
+
 	
 	public MyLinked() {
-		this.iterator = new ArrayIterator<Item>();
+		
 	
 	}
 	
@@ -102,7 +102,6 @@ public class MyLinked<Item> implements InterLink<Item> {
 				fix = (Node) fix.next;
 			}
 		}
-		
 		return false;
 	}
 
@@ -165,75 +164,29 @@ public class MyLinked<Item> implements InterLink<Item> {
 			this.element = element;
 		}
 	}
-	public class ArrayIterator<Item> implements ListatorIn <Item> {
-		
-		@Override
-		public Item next() {
-			if (index == 0) {
-				it = firstNode;
-				index++;
-				return (Item) it.element;
-			} else {
-				while (index < size) {
-					it = it.next;
-					index++;
-					return (Item) it.element;
-				}
-			}
-			return null;
-		}
 
-		@Override
-		public Item previous() {
-			if (index == 0) {
-				return null;
-			}
-			while (index > 0) {
-				it = it.prev;
-				index--;
-				return (Item) it.element;
-			}
-			return null;
-		}
-
-		@Override
-		public boolean hasNext() {
-			while (index++ < size) {
-				return true;
-			}
-			return false;
-		}
-
-		@Override
-		public boolean hasPrev() {
-			while (index > 0) {
-				return true;
-			}
-			return false;
-		}
-
-		@Override
-		public void remove() {
+	@SuppressWarnings("unchecked")
+	@Override
+	public Iterator<Item> iterator() {
+		Iterator<Item> it = new Iterator<Item>() {
+			Node i = firstNode;
+			int index = 0;
 			
-			if (it.element == firstNode.element) {
-				firstNode = firstNode.next;
-				firstNode.prev = null;
-				size--;
-				return;
+			
+			@Override
+			public boolean hasNext() {
+				return i.next != null && index < size;
 			}
-			if (it.element == lastNode.element) {
-				lastNode = lastNode.prev;
-				lastNode.next = null;
-				size--;
-				return;
+
+			@Override
+			public Item next() {
+				i = i.next;
+				index++;
+				return (Item) i.element;
 			}
-			Node fix = new Node(null);	
-			fix = it;
-			fix = fix.prev;
-			fix.next = it.next;
-			it = it.next;
-			it.prev = fix;
-			size--;
-		}
+		};
+		return it;
 	}
+	
+	
 }
