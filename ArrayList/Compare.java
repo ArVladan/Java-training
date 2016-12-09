@@ -10,14 +10,14 @@ public class Compare {
 	ArrList <String> oneText = new ArrList<>();
 	ArrList <String> twoText = new ArrList<>();
 	ArrList <String> result = new ArrList<>();
-	oneText.add("Маленький юзер игрушку принес");
-	oneText.add("Вирус с винчестера данные снес");
-	oneText.add("Он ее пишет на диск для backupа");
-	oneText.add("Рад будет папа");
-	twoText.add("Маленький юзер игрушку принес");
-	twoText.add("Вирус с винчестера данные снес");
-	twoText.add("Он ее пишет на диск для backupа");
-	twoText.add("То-то, наверное, рад будет папа!");
+	oneText.add("РњР°Р»РµРЅСЊРєРёР№ СЋР·РµСЂ РёРіСЂСѓС€РєСѓ РїСЂРёРЅРµСЃ");
+	oneText.add("Р’РёСЂСѓСЃ СЃ РІРёРЅС‡РµСЃС‚РµСЂР° РґР°РЅРЅС‹Рµ СЃРЅРµСЃ");
+	oneText.add("РћРЅ РµРµ РїРёС€РµС‚ РЅР° РґРёСЃРє РґР»СЏ backupР°");
+	oneText.add("РўРѕ-С‚Рѕ, РЅР°РІРµСЂРЅРѕРµ, СЂР°Рґ Р±СѓРґРµС‚ РїР°РїР°!");
+	twoText.add("РњР°Р»РµРЅСЊРєРёР№ СЋР·РµСЂ РёРіСЂСѓС€РєСѓ РїСЂРёРЅРµСЃ");
+	twoText.add("Р’РёСЂСѓСЃ СЃ РІРёРЅС‡РµСЃС‚РµСЂР° РґР°РЅРЅС‹Рµ СЃРЅРµСЃ");
+	twoText.add("РћРЅ РµРµ РїРёС€РµС‚ РЅР° РґРёСЃРє РґР»СЏ backupР°");
+	twoText.add("СЂР°Рґ Р±СѓРґРµС‚ РїР°РїР°!"");
 
 	if (oneText.size == twoText.size) {
 		for (int i = 0; i < oneText.size; i++) {
